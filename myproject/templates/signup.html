@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- <div id="backgroundimage">
+	<img src="{% static '/image/doctorSearchBan.jpg' %}">
+	<div class="text-block">
+	<h1>Sign Up</h1>
+	
+</div> 
+</div> -->
+	
+	<div id="register-box">
+		<div class="left-box">
+			<h1>Welcome To Medical Tourism</h1>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+			<img src="{% static '/image/scope1.png' %}">
+			
+		</div>
+		<div class="right-box">
+			<!-- <div class="logo text-center">
+						<img src="{% static '/image/stwlogo-2.png' %}">
+						
+					</div> -->
+
+				<h1 class="text-center">Create an Account</h1>	
+				{% load crispy_forms_tags %}
+					<div class="new-form">
+					<form method="POST">
+						{% csrf_token %}
+						<div class="form-group">
+							{{ form1|crispy }}	
+						</div>
+						<button class="btn btn-success" type="submit">Register</button>
+					</form>	
+					</div>	
+			
+		</div>
+
+	</div><br><br>
+	<script type="text/javascript">
+		
+			 //Near checkboxes
+	$('.form-check').click(function() {
+		$(this).siblings('input:checkbox').prop('checked', false);
+	});
+	</script>
+
+<!-- <script type='text/javascript'>
+	$(function($) {
+		$('.custom-form').hide();
+			   $('.patient').click(function(){
+			$('.custom-form').show();
+			 $('.doctor-custom-form').hide();
+
+		});
+		$('.doctor-custom-form').hide();
+		$('.doctor').click(function(){
+			$('.doctor-custom-form').show();
+		$('.custom-form').hide();
+			
+		});
+	});
+</script> -->
+{% endblock %}

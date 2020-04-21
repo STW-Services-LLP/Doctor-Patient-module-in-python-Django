@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h1>Appointment Details</h1>
+			</div>
+				<div class="col-md-12">
+				
+				<div class="details-list-view">
+					<div class="col-md-12 text-center">
+						<table class="details-view-table text-center">
+							<tr>
+								<th><i class="fa fa-calendar" aria-hidden="true"></i>Appointment Date</th>
+								<th><i class="fa fa-clock-o" aria-hidden="true"></i>Schedule Time</th>
+							</tr>
+							<tr>
+								<td>{{app.appointment}}</td>
+								<td>{{app.schedule_time}}</td>
+
+							</tr>
+						</table>
+						
+					</div>
+					<div class="col-md-6 rightside">
+						<h3>First Name</h3>
+					<p>{{app.first_name}}</p>
+
+					<h3>Last Name</h3>
+					<p>{{app.last_name}}</p>
+
+					<h3>Email</h3>
+					<p>{{app.email}}</p>
+					<h3>Doctor Name</h3>
+					<p class="doctor">{{app.doctor_name}}</p>
+					<h3>city</h3>
+					<p>{{app.city}}</p>
+					</div>
+					<!-- <h3>First Name</h3>
+					<p>{{app.first_name}}</p>
+
+					<h3>Last Name</h3>
+					<p>{{app.last_name}}</p>
+
+					<h3>Email</h3>
+					<p>{{app.email}}</p> -->
+					<!-- <table class="details-view-table" >
+						
+						<tr>
+							<th>ID:-</th>
+							<td>{{ app.id }}</td>
+						</tr>
+						<tr>
+							<th>First Name:-</th>
+							<td>{{ app.first_name }}</td>
+						</tr>
+						<tr>
+							<th>Last Name:-</th>
+							<td>{{ app.last_name }}</td>
+						</tr>
+						<tr>
+							<th>Phone No:-</th>
+							<td>{{ app.phone }}</td>
+						</tr>
+						<tr>
+							<th>Email:-</th>
+							<td>{{ app.email }}</td>
+						</tr>
+						<tr>
+							<th>Schedule Time :-</th>
+							<td>{{ app.schedule_time }}</td>
+						</tr>
+						<tr>
+							<th>Date:-</th>
+							<td>{{ app.appointment }}</td>
+						</tr>
+						<tr>
+							<th>Doctor Name:-</th>
+							<td>{{ app.doctor_name }}</td>
+						</tr>
+						<tr>
+							<th>City:-</th>
+							<td>{{ app.city }}</td>
+						</tr>
+						<tr>
+							<th>Country:-</th>
+							<td>{{ app.country }}</td>
+						</tr>
+						<tr>
+							<th>Message:-</th>
+							<td>{{ app.description }}</td>
+						</tr>
+							<!-- <tr><td>{{ app.first_name }}</td></tr>
+							<td>{{ app.last_name }}</td>
+							<td>{{ app.city }}</td>
+							<td>{{ app.phone }}</td>
+							<td><button class="btn btn-primary">Approve</button></td>
+							<td><button class="btn btn-success">View</button></td>
+						</tr> --
+					</table> -->
+					
+				</div><br>
+				
+
+			</div>
+		</div>
+		
+	</div>
+{% endblock %}

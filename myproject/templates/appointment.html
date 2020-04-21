@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-mage"style="background-image: url({% static '/image/bg_3.jpg' %}); background-attachment:fixed;">
+      <div class="overlay"></div>
+<div class="container">
+	<h2 class="text-center">Make an Appointment</h2>
+	<div class="row">
+		<div class="col-12">
+			<div class="appointment-form">
+				<form action="/appointment/" method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="first-name" class="form-control" placeholder="First Name" required>	
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="last-name" class="form-control" placeholder="Last Name" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="phone" class="form-control" placeholder="Phone No" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="email" name="email" class="form-control" placeholder="Email" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="address" class="form-control" placeholder="Address" required>	
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="city" class="form-control" placeholder="City" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<select name="your-schedule" class="form-control">
+									<option value="Choose Your Schedule">Choose Your Scheldule</option>
+									<option value="9 AM TO 10 AM">9 AM TO 10 AM</option>
+									<option value="11 AM TO 12 PM">11 AM TO 12 PM</option>
+									<option value="2 PM TO 4 PM">2 PM TO 4 PM</option>
+									<option value="6 PM TO 8 PM">6 PM TO 8 PM</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="date" name="date" class="form-control" placeholder="Date">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<select name="doctor-name" class="form-control">
+									<option>Doctor Name</option>
+									{% for d in depart %}
+										
+										<option value={{d.first_name}}>{{ d.first_name }}</option>
+									{% endfor %}
+									
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="country" class="form-control" placeholder="Country">
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-group">
+								<textarea name="message" class="form-control" placeholder="Your Message"></textarea>
+							</div>
+						</div>
+						<div class="col-12 text-center">
+							<button type="submit" class="btn btn-success">Booking Now</button><br><br>
+						</div>
+					</div>
+					
+				</form>
+					
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

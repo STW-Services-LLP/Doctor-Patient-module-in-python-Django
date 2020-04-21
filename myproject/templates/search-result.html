@@ -1,0 +1,103 @@
+{% load class_name %}
+<div class='row title-row my-5' target="_blank">
+    <div class='col-12 py-0'>
+        <h3 class='my-0 py-0'>{{ count }} results for <b>{{ query }}</b></h3>
+    </div>
+</div>
+        
+        
+{% for object in object_list %}
+    {% with object|class_name as klass %}
+      {% if klass == 'patient' %}
+           <div class='row'>
+             <div class='col-12'>
+               <!--  Patient: <a href='{{ object.get_absolute_url }}'>{{ object.name }}</a> -->
+               		<h1>Patient Details</h1>
+               		<table border="0px" width="300px">
+					<tr>
+						<td>Name</td>
+						<td>{{ object.name }}</td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td>{{ object.city }}</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>{{ object.description }}</td>
+					</tr>
+					<tr>
+						<td>Admit Date</td>
+						<td>{{ object.admit_date }}</td>
+					</tr>
+					<tr>
+						<td>Discharge Date</td>
+						<td>{{ object.discharge_date }}</td>
+					</tr>
+
+				</table>
+            </div>
+          </div>
+
+      {% elif klass == 'doctor' %}
+           <div class='row'>
+             <div class='col-12'>
+               <!--  Doctor: <a href='{{ object.get_absolute_url }}'>{{ object.first_name }}</a> -->
+               <h1>Doctor Details</h1>
+               		<table border="0px" width="300px">
+					<tr>
+						<td>First Name</td>
+						<td>{{ object.first_name }}</td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td>{{ object.last_name }}</td>
+					</tr>
+					<tr>
+						<td>Phone</td>
+						<td>{{ object.phone }}</td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+						<td>{{ object.gender }}</td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td>{{ object.city }}</td>
+					</tr>
+					<tr>
+						<td>Country</td>
+						<td>{{ object.country }}</td>
+					</tr>
+					<tr>
+						<td>Specialization</td>
+						<td>{{ object.specialization }}</td>
+					</tr>
+					<tr>
+						<td>HighestQualification</td>
+						<td>{{ object.highestqualification }}</td>
+					</tr>
+
+				</table>
+              </div>
+            </div>
+        
+     <!--  {% elif klass == 'Profile' %}
+           <div class='row'>
+                <div class='col-12'>
+                   Lesson Item: <a href='{{ object.get_absolute_url }}'>{{ object.title }}</a>
+                </div>
+            </div> -->
+      {% else %}
+           <div class='row'>
+             <div class='col-12 col-lg-8 offset-lg-4'>
+                <a href='{{ object.get_absolute_url }}'>{{ object }} | {{ object|class_name }}</a>
+            </div>
+           </div>
+        {% endif %}
+        
+    {% endwith %}
+    
+{% empty %}
+
+{% endfor %}

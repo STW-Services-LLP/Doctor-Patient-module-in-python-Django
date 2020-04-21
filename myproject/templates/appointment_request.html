@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-12 text-center">
+		<h1 class="list-appo">Appointsments</h1>
+		</div>
+			<div class="col-md-12">
+				{% for app in appoint %}
+				<div class="col-md-8 view">
+				<div class="list-view">
+					<table class="view-table" style="float: left; text-align: center;">
+						<tr>
+							<th><i class="fa fa-user-circle-o" aria-hidden="true"></i></th>
+								<td>{{ app.first_name }}</td>
+
+						</tr>
+						<tr>
+							<th><i class="fa fa-user-circle-o" aria-hidden="true"></i></th>
+								<td>{{ app.last_name }}</td>
+						</tr>
+
+						<tr>
+							<th><i class="fa fa-envelope" aria-hidden="true"></i></th>
+								<td>{{ app.email }}</td>
+						</tr>
+						<tr>
+							<th><i class="fa fa-map-marker" aria-hidden="true"></i></th>
+								<td>{{ app.city }}</td>
+						</tr>
+					</table>
+					<table class="view-table" cellspacing="20" style="display: inline-block;">
+						<tr>
+							<th><i class="fa fa-phone" aria-hidden="true"></i></th>
+								<td>{{app.phone}}</td>
+						</tr>
+						<tr>
+							<th><i class="fa fa-calendar" aria-hidden="true"></i></th>
+								<td>{{app.appointment}}</td>
+						</tr>
+						<tr>
+							<th><i class="fa fa-clock-o" aria-hidden="true"></i></th>
+								<td>{{app.schedule_time}}</td>
+						</tr>
+						<tr>
+							<th><i class="fa fa-map-marker" aria-hidden="true"></i></th>
+								<td>{{app.country}}</td>
+						</tr>
+							
+						
+						
+					</table>
+						<button class="btn btn-success text-center" id="Approve">Approve</button>
+					
+				</div><br>
+			</div>
+				{% endfor %}
+
+			</div>
+		
+			
+	</div>
+	
+</div>
+<script type='text/javascript'>
+	$(document).ready(function($){
+		$('.text-center').one('click',function(e){
+			e.preventDefault();
+			alert("Approve!!");
+			// $(".text-center").prop("disabled",true);
+			$(this).hide();
+		});
+
+	});
+
+</script>
+{% endblock %}
